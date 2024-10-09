@@ -45,5 +45,11 @@ namespace TwitterApp.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public IActionResult LoginPost(RegisterAccountModel model)
+        {
+           
+        }
     }
 }
