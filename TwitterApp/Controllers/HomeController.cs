@@ -5,7 +5,7 @@ using TwitterApp.Models;
 
 namespace TwitterApp.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
