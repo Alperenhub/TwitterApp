@@ -15,7 +15,7 @@ namespace TwitterApp.Controllers
             return View();
         }
 
-      
+
         [HttpPost]
         public IActionResult Logout()
         {
@@ -52,7 +52,7 @@ namespace TwitterApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult>  LoginPost(LoginViewModel model)
+        public async Task<IActionResult> LoginPost(LoginViewModel model)
 
         {
             using (var context = new TwitterApp.Data.Contexts.TwttierAppDbContext())
@@ -64,6 +64,7 @@ namespace TwitterApp.Controllers
                     {
                         new Claim(ClaimTypes.Name, user.Username),
                         new Claim("FullName", user.Name),
+                        new Claim("Id", user.Id.ToString()),
                         new Claim(ClaimTypes.Role, "Administrator"),
                     };
 
@@ -99,7 +100,7 @@ namespace TwitterApp.Controllers
                         new ClaimsPrincipal(claimsIdentity),
                         authProperties);
 
-                   // return RedirectToAction("Index","Home");
+                    // return RedirectToAction("Index","Home");
 
                     return LocalRedirect("/");
                 }

@@ -40,9 +40,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthorization();
 
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapRazorPages();
 app.MapDefaultControllerRoute();
@@ -53,7 +53,7 @@ app.MapDefaultControllerRoute();
 // Default routing to Account/RegisterAccount
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}"
+    pattern: "{controller=Account}/{action=Login}"
 );
 
 app.Run();

@@ -1,0 +1,36 @@
+﻿@using TwitterApp.Models
+
+@model Post
+
+@{
+    ViewData["Title"] = "Yeni Post";
+}
+
+<h1>Post</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddPost" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label"></label>
+                <input id="Content" asp-for="Content" class="form-control" />
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input id="btnSave" type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section  Scripts {
+    <script>
+
+        $('#btnSave').on('click', function () {
+            console.log($('#Content').val());
+        })
+
+    </script>
+}
